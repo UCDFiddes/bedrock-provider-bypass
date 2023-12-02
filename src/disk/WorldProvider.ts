@@ -116,7 +116,7 @@ export class WorldProvider {
     return null
   }
 
-  async writeSubChunks (column: {sections: any[], co: number, x: number, z: number, minCY: number, maxCY: number}): Promise<any> {
+  async writeSubChunks (column: any): Promise<any> {
     const promises = []
     // if (column.chunkVersion >= Version.v1_17_0) {
       for (let y = column.minCY; y < column.maxCY; y++) {
