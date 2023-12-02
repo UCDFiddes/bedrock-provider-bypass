@@ -116,7 +116,7 @@ export class WorldProvider {
     return null
   }
 
-  async writeSubChunks (column: BedrockChunk): Promise<any> {
+  async writeSubChunks (column: {sections: any[], co: number}): Promise<any> {
     const promises = []
     // if (column.chunkVersion >= Version.v1_17_0) {
       for (let y = column.minCY; y < column.maxCY; y++) {
