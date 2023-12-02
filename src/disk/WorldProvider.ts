@@ -118,17 +118,17 @@ export class WorldProvider {
 
   async writeSubChunks (column: BedrockChunk): Promise<any> {
     const promises = []
-    if (column.chunkVersion >= Version.v1_17_0) {
+    // if (column.chunkVersion >= Version.v1_17_0) {
       for (let y = column.minCY; y < column.maxCY; y++) {
-        const section = column.getSection(y)
+        const section = column.sections[column.co + y]
         if (!section) {
-          break // no more sections
+          continue; // no more sections
         }
         const key = KeyBuilder.buildChunkKey(column.x, y, column.z, this.dimension)
         const buf = await section.encode(StorageType.LocalPersistence)
         promises.push(this.db.put(key, buf))
       }
-    }
+    // }
 
     return await Promise.all(promises)
   }
