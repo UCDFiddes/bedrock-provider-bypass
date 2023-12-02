@@ -7,7 +7,8 @@
     "build": "tsc",
     "lint": "ts-standard",
     "fix": "ts-standard --fix",
-    "test": "tsc && mocha --bail --require mocha-steps --require ts-node/register test/*.ts --exit"
+    "test": "tsc && mocha --bail --require mocha-steps --require ts-node/register test/*.ts --exit",
+    "prepare": "yarn build || npm run build"
   },
   "author": "extrmeheat",
   "repository": {
